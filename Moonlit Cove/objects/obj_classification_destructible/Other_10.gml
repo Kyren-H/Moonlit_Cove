@@ -1,0 +1,1 @@
+// Enter what happens when this destructible object is hit.
