@@ -28,3 +28,10 @@ if (x_factor != 0 or y_factor != 0) {
 } else {
 	sprite_index = spr_player_idle;
 }
+
+show_debug_message("player at " + string(x) + ", " + string(y) + " in " + room_get_name(room))
+draw_self()
+
+if(global.debug){
+	draw_circle_color(x, y, 20, c_red, c_red, false)
+}
