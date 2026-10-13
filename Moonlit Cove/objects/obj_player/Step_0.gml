@@ -1,30 +1,67 @@
-// ---MOVEMENT SECTION--- //
 
-// Collect key inputs per frame.
-key_left = keyboard_check(vk_left) or keyboard_check(ord("A"));
-key_right = keyboard_check(vk_right) or keyboard_check(ord("D"));
-key_down = keyboard_check(vk_down) or keyboard_check(ord("S"));
-key_up = keyboard_check(vk_up) or keyboard_check(ord("W"));
+/// MOVEMENT
 
-// Condense inputs into modifier factors.
+key_left  = keyboard_check(vk_left)  || keyboard_check(ord("A"));
+key_right = keyboard_check(vk_right) || keyboard_check(ord("D"));
+key_down  = keyboard_check(vk_down)  || keyboard_check(ord("S"));
+key_up    = keyboard_check(vk_up)    || keyboard_check(ord("W"));
+
 var x_factor = key_right - key_left;
 var y_factor = key_down - key_up;
 
-// Processes input for movement.
 var moveArray = [0, 0];
-basic_movement(x_factor, y_factor, moveArray)
+basic_movement(x_factor, y_factor, moveArray);
 
-move_and_collide(moveArray[0], moveArray[1], obj_classification_collideable)
+var move_x = moveArray[0];
+var move_y = moveArray[1];
 
+/// WALL COLLISION
 
-// ---VISUAL SECTION--- //
+// Check the four corners of the player's collision bounding box.
+var hits_wall = method(self, function(_dx, _dy) {
+    var l = bbox_left + _dx;
+    var r = bbox_right + _dx;
+    var t = bbox_top + _dy;
+    var b = bbox_bottom + _dy;
 
-// Swaps sprite direction.
-if (x_factor != 0) then image_xscale = x_factor;
+    var points_x = [l, r];
+    var points_y = [t, b];
 
-// Swaps sprite to movement mode.
-if (x_factor != 0 or y_factor != 0) {
-	sprite_index = spr_player_movement;
+    for (var i = 0; i < 2; i++) {
+        for (var j = 0; j < 2; j++) {
+            var tile = tilemap_get_at_pixel(
+                wall_tilemap,
+                points_x[i],
+                points_y[j]
+            );
+
+            if (tile != 0) {
+                return true;
+            }
+        }
+    }
+
+    return false;
+});
+
+// Horizontal movement
+if (!hits_wall(move_x, 0)) {
+    x += move_x;
+}
+
+// Vertical movement
+if (!hits_wall(0, move_y)) {
+    y += move_y;
+}
+
+/// VISUALS
+
+if (x_factor != 0) {
+    image_xscale = sign(x_factor);
+}
+
+if (x_factor != 0 || y_factor != 0) {
+    sprite_index = spr_player_movement;
 } else {
-	sprite_index = spr_player_idle;
+    sprite_index = spr_player_idle;
 }

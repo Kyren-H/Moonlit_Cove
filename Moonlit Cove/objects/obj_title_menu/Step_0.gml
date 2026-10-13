@@ -24,26 +24,53 @@ if (panel != "none") {
 	exit;
 }
 
-// -- Mouse Hovering Actions --
+
+// -- Mouse Hover Detection --
 hover = -1;
 var length = array_length(buttons);
+
 for (var i = 0; i < length; i++) {
-	if (point_in_rectangle(mx, my, btn_x, btn_top(i), btn_x + btn_width, btn_top(i) + btn_height)) {
-		hover = i;
-	}
+    var left = btn_left(i);
+    var top = btn_top(i);
+
+    if (point_in_rectangle(
+        mx, my,
+        left, top,
+        left + btn_width, top + btn_height
+    )) {
+        hover = i;
+        break;
+    }
 }
-if (hover != -1 and (mx != last_mx or my != last_my)) {
-	selected = hover;
+
+// -- Mouse Hover Selection --
+if (hover != -1) {
+    selected = hover;
 }
-last_mx = mx;
-last_my = my;
-selected = (selected + down - up + length) mod length;
+
+// -- Keyboard Navigation --
+// Left/right moves through the horizontal row.
+var left_key = keyboard_check_pressed(vk_left)
+            || keyboard_check_pressed(ord("A"));
+
+var right_key = keyboard_check_pressed(vk_right)
+             || keyboard_check_pressed(ord("D"));
+
+if (hover == -1) {
+    if (right_key) {
+        selected = (selected + 1) mod length;
+    }
+
+    if (left_key) {
+        selected = (selected - 1 + length) mod length;
+    }
+}
 
 // -- Activation Cases / State of Game --
 if (confirm or (hover != -1 and hover == selected and mouse_check_button_pressed(mb_left))) {
 	switch (selected) {
-		case 0: starting = true;   break;
-		case 1: panel = "how";     break;
+		case 0: panel = "how";   break;
+		case 1: starting = true;    break;
 		case 2: panel = "Credits"; break;
 	}
 }

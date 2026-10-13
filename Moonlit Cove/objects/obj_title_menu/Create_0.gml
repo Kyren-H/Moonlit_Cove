@@ -1,19 +1,60 @@
+
+// ================================================
+// MOONLIT COVE — COLOR PALETTE
+// ================================================
+
+// Main ocean backgrounds
+col_bg    = #101b3d;  // Deep ocean
+col_deep  = #182957;  // Midnight blue
+col_ocean = #28518a;  // Ocean blue
+col_blue  = #4f83b5;  // Soft ocean blue
+
+// Magical highlights
+col_glow  = #8bd3e6;  // Star blue / UI glow
+col_aqua  = #8cc8d9;  // Water highlights
+col_mint  = #ddf4e8;  // Pale seafoam
+
+// Moon and text
+col_moon  = #f4eedb;  // Moon cream
+col_text  = #f3f6e8;  // Soft white
+
 // -- Size + Select + Hover [Variables] --
 get_width  = display_get_gui_width();
 get_height = display_get_gui_height();
-buttons    = ["Start Game", "How to Play", "Credits"];
-selected   = 0;
+buttons    = ["How To Play", "Start Game", "Credits"];
+selected   = 1;
 hover      = -1;
 
-// -- Buttons [Variables] --
-btn_width  = 300;
+
+// -- Horizontal Menu Buttons --
+buttons = ["How To Play", "Start Game", "Credits"];
+
+btn_width  = 260;
 btn_height = 64;
-btn_gap    = 20;
-btn_x      = (get_width / 2) - (btn_width / 2);
-btn_y      = get_height * 0.55;
-btn_top = function(i) {
-	return btn_y + i * (btn_height + btn_gap);
+btn_gap    = 28;
+
+// Center the entire row
+var total_width = array_length(buttons) * btn_width
+                + (array_length(buttons) - 1) * btn_gap;
+
+btn_x = (1920 - total_width) * 0.5;
+btn_y = 830;
+
+// Position each button from left to right
+btn_left = function(i) {
+    return btn_x + i * (btn_width + btn_gap);
 };
+
+// Keep this function if other code references btn_top.
+// All buttons share the same vertical position.
+btn_top = function(i) {
+    return btn_y;
+};
+
+// Initial menu state
+selected = 1;
+hover = -1;
+
 
 // -- State Of Game [Variables] --
 panel    = "none";
