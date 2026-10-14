@@ -26,6 +26,57 @@ draw_set_alpha(0.16);
 draw_rectangle(0, 820, sw, sh, false);
 draw_set_alpha(1);
 
+var wave_top = 572; 
+var wave_bot = 840;
+var wave_rows = 8;  // Number of rows
+var wave_px = 4;
+
+for (var wr = 0; wr < wave_rows; wr++){
+	var wave_d = wr / (wave_rows - 1);
+	var wave_y = lerp(wave_top, wave_bot, wave_d * wave_d);
+	var wave_amp = lerp(1.5, 16, wave_d * wave_d);
+	var wave_len = lerp(40, 160, wave_d);
+	var wave_spd = lerp(0.35, 1.1, wave_d) * ((wr mod 2 == 0) ? 1: -1);
+	var wave_ph = wr * 1.7;
+
+	draw_set_colour(merge_colour(col_deep, col_ocean, 0.15 + wave_d * 0.45))
+	draw_set_alpha(lerp(0.25, 0.55, wave_d));
+	draw_primitive_begin(pr_trianglestrip);
+	for (var wx = 0; wx <= sw; wx += wave_px){
+		var wy = wave_y + sin(wx / wave_len + t * wave_spd + wave_ph) * wave_amp
+                      + sin(wx / (wave_len * 0.45) - t * wave_spd * 1.6) * wave_amp * 0.35;
+        draw_vertex(wx, floor(wy / wave_px) * wave_px);
+        draw_vertex(wx, wave_bot);
+	}
+	draw_primitive_end();
+	
+	var wave_col = (wave_d < 0.35) ? col_blue : ((wave_d < 0.7) ? col_aqua : col_glow);
+	var wave_h = (wave_d < 0.5) ? 2 : wave_px;
+	draw_set_colour(wave_col);
+	for(var wx = 0; wx <= sw; wx += wave_px){
+		var wave_c = sin(wx / wave_len + t * wave_spd + wave_ph);
+		if (wave_c < -0.75){
+			var wy = wave_y + wave_c * wave_amp + sin(wx / (wave_len * 0.45) - t * wave_spd * 1.6) * wave_amp * 0.35;
+			wy = floor(wy / wave_px) * wave_px;
+			draw_set_alpha(lerp(0.3, 0.85, wave_d) * (0.6 + 0.4 * sin(t * 2 + wx * 0.03 + wr)));	
+			draw_rectangle(wx, wy, wx + wx + wave_px - 1, wy + wave_h - 1, false);
+		}
+	}
+	if (wave_d > 0.5) {
+		draw_set_colour(col_moon);
+		for(var g = -6; g <= 6; g++) {
+			var gx = sw * 0.5 + g * 22 + sin(t * 2 + g) * 6;
+			var gy = wave_y + sin(gx / wave_len + t * wave_spd + wave_ph) * wave_amp + wave_px * 2;
+			gy = floor(gy / wave_px) * wave_px;
+			var gl = (3 + abs(sin(t * 3 + g * 1.3 + wr)) * 8) * wave_amp + wave_px * (1 - abs(g) / 7);
+			draw_set_alpha(max(0, 0.7 - abs(g) * 0.1) * wave_d);
+			draw_rectangle(gx - gl * 0.5, gy, gx + gl * 0.5, gy + wave_px - 1, false);
+		}
+	}
+}
+draw_set_alpha(1);
+	
+	
 // -- Background Star Field [FIXED]	
 var star_count =1000;
 for(var k = 0; k < star_count; k ++){
@@ -105,9 +156,10 @@ draw_triangle(dx, dy - ds,
 draw_triangle(dx, dy - ds,
               dx - ds * 0.55, dy,
               dx, dy + ds, false);
-
-// -- Shooting Stars --
-var shooting_count = 5; 
+// -------------------------------------
+//	SHOOTING STARS
+// -------------------------------------
+var shooting_count = 50; 
 for (var m = 0; m < shooting_count; m++){
 	var ss_period = 6 + m * 3.5;
 	var ss_dur = 1.1;

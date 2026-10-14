@@ -1,25 +1,57 @@
 // DARKNESS SEGMENT - CTD
 // Experimental surface stuff. Fun!
+gpu_set_blendenable(true);
 draw_set_alpha(1);
+
+if (!surface_exists(sfc_Darkness)) {
+    sfc_Darkness = surface_create(room_width, room_height);
+}
 surface_set_target(sfc_Darkness);
+
 // Set the darkness color and the blending mode.
-draw_clear_alpha(c_black, 1);
-gpu_set_blendmode(bm_subtract);
+// CHANGED: Deep Navy Color
+draw_clear_alpha(darkness_colour, darkness_strength);
+gpu_set_blendmode_ext(bm_zero, bm_inv_src_alpha);
+
 
 // Get the little guy's position for drawing.
 var sfc_X = obj_player.x;
 var sfc_Y = obj_player.y;
 
-var sfc_border_edge_LR = [sfc_X - ((has_moon_glow) ? darkness_edge_LR*moonglow_mod : darkness_edge_LR), sfc_X + ((has_moon_glow) ? darkness_edge_LR*moonglow_mod : darkness_edge_LR)] 
-var sfc_border_edge_UD = [sfc_Y - ((has_moon_glow) ? darkness_edge_UD*moonglow_mod : darkness_edge_UD), sfc_Y + ((has_moon_glow) ? darkness_edge_UD*moonglow_mod : darkness_edge_UD)] 
+// Get the radius to ake a cirlce for the darkness
+var sfc_radius = (has_moon_glow) ? darkness_edge_LR*moonglow_mod : darkness_edge_LR;
+var sfc_rings = [[1.00, 0.35], [0.80, 0.50], [0.60, 0.60], [0.40, 1.00]];
 
-draw_ellipse_colour(sfc_border_edge_LR[0], sfc_border_edge_UD[0], sfc_border_edge_LR[1], sfc_border_edge_UD[1], c_white, c_black, false);
+for (var r = 0; r < array_length(sfc_rings); r++){
+	var sfc_size = sfc_radius * sfc_rings[r][0];
+	draw_set_alpha(sfc_rings[r][1]);
+	draw_ellipse(sfc_X - sfc_size, sfc_Y - sfc_size, sfc_X + sfc_size, sfc_Y + sfc_size, false);
+}
+
+with (obj_light) {
+	for (var r = 0; r < array_length(sfc_rings); r++) {
+		var sfc_size = radius * sfc_rings[r][0];
+		draw_set_alpha(sfc_rings[r][1] * intensity);
+		draw_ellipse(x - sfc_size, y - sfc_size, x + sfc_size, y + sfc_size, false);
+	}
+}
+
 
 gpu_set_blendmode(bm_normal);
+draw_set_alpha(1);
 surface_reset_target();
+gpu_set_blendenable(true);
 
-draw_surface_part_ext(sfc_Darkness, camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]), camera_get_view_width(view_camera[0]), camera_get_view_height(view_camera[0]), 0, 0, display_get_gui_width() / camera_get_view_width(view_camera[0]), display_get_gui_height() / camera_get_view_height(view_camera[0]), c_black, 1);
-
+draw_surface_part_ext(
+	sfc_Darkness, 
+	camera_get_view_x(view_camera[0]), 
+	camera_get_view_y(view_camera[0]), 
+	camera_get_view_width(view_camera[0]), 
+	camera_get_view_height(view_camera[0]), 
+	0, 0, 
+	display_get_gui_width() / camera_get_view_width(view_camera[0]), 
+	display_get_gui_height() / camera_get_view_height(view_camera[0]), 
+	c_white, 1);
  // ================================================
  // MOONLIT COVE — COMBINED HUD
  // Timer / Lives / Collectibles

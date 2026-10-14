@@ -49,6 +49,7 @@
     {"id":{"name":"obj_gate","path":"objects/obj_gate/obj_gate.yy",},},
     {"id":{"name":"obj_jellyfish","path":"objects/obj_jellyfish/obj_jellyfish.yy",},},
     {"id":{"name":"obj_lever","path":"objects/obj_lever/obj_lever.yy",},},
+    {"id":{"name":"obj_light","path":"objects/obj_light/obj_light.yy",},},
     {"id":{"name":"obj_moon_glow","path":"objects/obj_moon_glow/obj_moon_glow.yy",},},
     {"id":{"name":"obj_moon_key","path":"objects/obj_moon_key/obj_moon_key.yy",},},
     {"id":{"name":"obj_moon_pearl","path":"objects/obj_moon_pearl/obj_moon_pearl.yy",},},

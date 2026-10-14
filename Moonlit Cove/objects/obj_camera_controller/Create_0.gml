@@ -2,8 +2,8 @@
 /// obj_camera_controller — Create Event
 
 // Size of the visible game area, in room pixels
-cam_w = 768;
-cam_h = 432;
+cam_w = 480;
+cam_h = 270;
 
 // Smooth-follow settings
 follow_speed = 0.10;
@@ -22,3 +22,6 @@ cam = camera_create_view(
 view_enabled = true;
 view_visible[0] = true;
 view_camera[0] = cam;
+
+view_wport[0] = 1920;
+view_hport[0] = 1080;

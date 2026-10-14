@@ -51,3 +51,7 @@ col_mint  = #ddf4e8;  // Pale seafoam
 // Moon and text
 col_moon  = #f4eedb;  // Moon cream
 col_text  = #f3f6e8;  // Soft white
+
+// Lighting Radius 
+event_inherited();
+radius = 110;	      // Size of Glow

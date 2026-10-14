@@ -33,3 +33,5 @@ hud_grey  = #69758b;
 
 // DARKNESS INIT - CTD
 sfc_Darkness = surface_create(room_width, room_height);
+darkness_colour = make_colour_rgb(14, 20, 52);
+darkness_strength = 0.9;

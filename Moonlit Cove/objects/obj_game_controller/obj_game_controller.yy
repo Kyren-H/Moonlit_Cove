@@ -28,7 +28,7 @@
   "physicsShapePoints":[],
   "physicsStartAwake":true,
   "properties":[
-    {"$GMObjectProperty":"v2","%Name":"darkness_edge_LR","filters":[],"listItems":[],"multiselect":false,"name":"darkness_edge_LR","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"240","varType":0,},
+    {"$GMObjectProperty":"v2","%Name":"darkness_edge_LR","filters":[],"listItems":[],"multiselect":false,"name":"darkness_edge_LR","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"60","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"darkness_edge_UD","filters":[],"listItems":[],"multiselect":false,"name":"darkness_edge_UD","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"160","varType":0,},
     {"$GMObjectProperty":"v2","%Name":"moonglow_mod","filters":[],"listItems":[],"multiselect":false,"name":"moonglow_mod","rangeEnabled":false,"rangeMax":10.0,"rangeMin":0.0,"resourceType":"GMObjectProperty","resourceVersion":"2.0","value":"1.5","varType":0,},
   ],
