@@ -1,3 +1,24 @@
+// DARKNESS SEGMENT - CTD
+// Experimental surface stuff. Fun!
+draw_set_alpha(1);
+surface_set_target(sfc_Darkness);
+// Set the darkness color and the blending mode.
+draw_clear_alpha(c_black, 1);
+gpu_set_blendmode(bm_subtract);
+
+// Get the little guy's position for drawing.
+var sfc_X = obj_player.x;
+var sfc_Y = obj_player.y;
+
+var sfc_border_edge_LR = [sfc_X - ((has_moon_glow) ? darkness_edge_LR*moonglow_mod : darkness_edge_LR), sfc_X + ((has_moon_glow) ? darkness_edge_LR*moonglow_mod : darkness_edge_LR)] 
+var sfc_border_edge_UD = [sfc_Y - ((has_moon_glow) ? darkness_edge_UD*moonglow_mod : darkness_edge_UD), sfc_Y + ((has_moon_glow) ? darkness_edge_UD*moonglow_mod : darkness_edge_UD)] 
+
+draw_ellipse_colour(sfc_border_edge_LR[0], sfc_border_edge_UD[0], sfc_border_edge_LR[1], sfc_border_edge_UD[1], c_white, c_black, false);
+
+gpu_set_blendmode(bm_normal);
+surface_reset_target();
+
+draw_surface_part_ext(sfc_Darkness, camera_get_view_x(view_camera[0]), camera_get_view_y(view_camera[0]), camera_get_view_width(view_camera[0]), camera_get_view_height(view_camera[0]), 0, 0, display_get_gui_width() / camera_get_view_width(view_camera[0]), display_get_gui_height() / camera_get_view_height(view_camera[0]), c_black, 1);
 
  // ================================================
  // MOONLIT COVE — COMBINED HUD
@@ -263,3 +284,4 @@ draw_set_colour(c_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(-1);
+

@@ -14,4 +14,8 @@ function game_state_reset(){
 		moon_dash: false,
 		moon_key:  false
 	};
+	
+	instance_activate_object(obj_moon_glow);
+	instance_activate_object(obj_moon_key);
+	instance_activate_object(obj_moon_pearl);
 }

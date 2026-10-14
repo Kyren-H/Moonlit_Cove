@@ -5,7 +5,7 @@
 
 if (!game_over) {
 
-    time_remaining -= delta_time / 1000000;
+    time_remaining -= delta_time / 100000//0;
 
     
 	// Midnight reached
@@ -19,6 +19,7 @@ if (!game_over) {
 	        game_over = true;
 
 	        // Trigger your Game Over state here.
+			room_goto(game_over_room);
 	    }
 	    else {
 	        // Reset the clock
@@ -31,7 +32,7 @@ if (!game_over) {
 
 	        // Reset collectible objects in the world.
 	        // Call your existing world-reset function here.
-	        reset_time_loop();
+	        game_state_reset();
 	    }
 	}
 }

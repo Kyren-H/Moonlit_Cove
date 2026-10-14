@@ -34,7 +34,7 @@ var hits_wall = method(self, function(_dx, _dy) {
                 points_x[i],
                 points_y[j]
             );
-
+			
             if (tile != 0) {
                 return true;
             }
@@ -57,7 +57,7 @@ if (!hits_wall(0, move_y)) {
 /// VISUALS
 
 if (x_factor != 0) {
-    image_xscale = sign(x_factor);
+    image_xscale = abs(image_xscale) * sign(x_factor);
 }
 
 if (x_factor != 0 || y_factor != 0) {

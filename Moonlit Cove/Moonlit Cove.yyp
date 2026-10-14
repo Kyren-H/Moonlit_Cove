@@ -58,7 +58,9 @@
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},},
     {"id":{"name":"obj_title_menu","path":"objects/obj_title_menu/obj_title_menu.yy",},},
     {"id":{"name":"obj_turtle","path":"objects/obj_turtle/obj_turtle.yy",},},
+    {"id":{"name":"temp_obj_gameover","path":"objects/temp_obj_gameover/temp_obj_gameover.yy",},},
     {"id":{"name":"bubbleParticles","path":"particles/bubbleParticles/bubbleParticles.yy",},},
+    {"id":{"name":"game_over_room","path":"rooms/game_over_room/game_over_room.yy",},},
     {"id":{"name":"Playroom_1","path":"rooms/Playroom_1/Playroom_1.yy",},},
     {"id":{"name":"title_room","path":"rooms/title_room/title_room.yy",},},
     {"id":{"name":"game_state_reset","path":"scripts/game_state_reset/game_state_reset.yy",},},
@@ -96,6 +98,7 @@
   "RoomOrderNodes":[
     {"roomId":{"name":"title_room","path":"rooms/title_room/title_room.yy",},},
     {"roomId":{"name":"Playroom_1","path":"rooms/Playroom_1/Playroom_1.yy",},},
+    {"roomId":{"name":"game_over_room","path":"rooms/game_over_room/game_over_room.yy",},},
   ],
   "templateType":"game",
   "TextureGroups":[

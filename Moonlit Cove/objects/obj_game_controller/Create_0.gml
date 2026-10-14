@@ -30,3 +30,6 @@ hud_mint  = #ddf4e8;
 hud_moon  = #f4eedb;
 hud_text  = #f3f6e8;
 hud_grey  = #69758b;
+
+// DARKNESS INIT - CTD
+sfc_Darkness = surface_create(room_width, room_height);

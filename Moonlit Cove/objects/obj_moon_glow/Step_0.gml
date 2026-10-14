@@ -12,7 +12,7 @@ glow_alpha = 0.25 + 0.15 * sin(degtorad(glow_phase));
 
 // Gentle floating movement
 float_phase += 2;
-image_yscale = 1;
+//image_yscale = 1; What's the purpose of this? Messed with the scaling of the image ingame. - CTD
 y_offset = sin(degtorad(float_phase)) * 3;
 
 // Create a sparkle periodically
