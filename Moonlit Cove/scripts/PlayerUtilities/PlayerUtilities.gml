@@ -17,5 +17,5 @@ function basic_movement(xFactor, yFactor, out__array) {
 }
 
 function spin_hit(plr_x, plr_y) {
-	instance_create_layer(plr_x, plr_y, "Instances", obj_player_spin_hit);
+	instance_create_layer(plr_x, plr_y, layer, obj_player_spin_hit);
 }
