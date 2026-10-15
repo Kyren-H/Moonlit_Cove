@@ -39,8 +39,8 @@
   "resourceVersion":"2.0",
   "solid":false,
   "spriteId":{
-    "name":"spr_player_idle",
-    "path":"sprites/spr_player_idle/spr_player_idle.yy",
+    "name":"spr_turtle",
+    "path":"sprites/spr_turtle/spr_turtle.yy",
   },
   "spriteMaskId":{
     "name":"spr_player_collisionmask",
