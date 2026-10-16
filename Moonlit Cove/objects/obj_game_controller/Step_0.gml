@@ -27,11 +27,9 @@ if (!game_over) {
 
 	        // Reset collectible objects in the world.
 	        // Call your existing world-reset function here.
-<<<<<<< HEAD
-	        loop_reset();
-=======
-	        game_restart();
->>>>>>> e4068e1e91336720303e104a2f30db90f3591c20
+		
+		loop_reset();
+		
 	    }
 	}
 }

@@ -17,32 +17,34 @@ var move_y = moveArray[1];
 
 /// WALL COLLISION
 
+// Walls are always solid; gates are solid until Tsuki has their ability.
+var solid_maps = [wall_tilemap];
+if (!global.abilities.moon_glow){
+	array_push(solid_maps, gate_glow_tilemap);
+}
+if (!global.abilities.moon_dash) {
+	array_push(solid_maps, gate_dash_tilemap);
+}
+
 // Check the four corners of the player's collision bounding box.
-var hits_wall = method(self, function(_dx, _dy) {
-    var l = bbox_left + _dx;
-    var r = bbox_right + _dx;
-    var t = bbox_top + _dy;
-    var b = bbox_bottom + _dy;
-
-    var points_x = [l, r];
-    var points_y = [t, b];
-
-    for (var i = 0; i < 2; i++) {
-        for (var j = 0; j < 2; j++) {
-            var tile = tilemap_get_at_pixel(
-                wall_tilemap,
-                points_x[i],
-                points_y[j]
-            );
-			
-            if (tile != 0) {
-                return true;
-            }
-        }
-    }
-
-    return false;
+var hits_wall = method({inst : id, maps : solid_maps}, function(_dx, _dy) {
+	var points_x = [inst.bbox_left + _dx, inst.bbox_right + _dx];
+	var points_y = [inst.bbox_top + _dy, inst.bbox_bottom + _dy];
+	
+	for (var m = 0; m < array_length(maps); m++){
+		for (var i = 0; i < 2; i++){
+			for (var j = 0; j < 2; j++){
+				if (tilemap_get_at_pixel(maps[m], points_x[i], points_y[j]) != 0){
+					return true;
+				}
+			}
+		}
+	}
+	return false;
 });
+
+layer_set_visible("Tile_Gate_Glow", !global.abilities.moon_glow);
+layer_set_visible("Tile_Gate_Dash", !global.abilities.moon_dash);
 
 // Horizontal movement
 if (!hits_wall(move_x, 0)) {
