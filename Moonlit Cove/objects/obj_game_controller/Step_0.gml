@@ -62,3 +62,9 @@ if (keyboard_check_pressed(ord("0"))) {
     has_moon_pearl = false;
     has_moon_key = false;
 }
+
+if (keyboard_check_pressed(ord("L"))){
+	lives = 1;
+	time_remaining = 5;
+}
+
