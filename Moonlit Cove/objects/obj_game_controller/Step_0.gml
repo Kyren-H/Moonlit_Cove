@@ -5,7 +5,7 @@
 
 if (!game_over) {
 
-    time_remaining -= delta_time / 100000//0;
+    time_remaining -= delta_time / 1000000;
 
     
 	// Midnight reached
@@ -32,7 +32,7 @@ if (!game_over) {
 
 	        // Reset collectible objects in the world.
 	        // Call your existing world-reset function here.
-	        game_state_reset();
+	        game_restart();
 	    }
 	}
 }
