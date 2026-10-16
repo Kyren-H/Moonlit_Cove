@@ -58,13 +58,37 @@ btn_top = function(i) {
 };
 
 btn_x = (1920 - total_width) * 0.5;
-btn_y = 590;
+btn_y = 700;
 
 // Position each button from left to right
 btn_left = function(i) {
     return btn_x + i * (btn_width + btn_gap);
 };
 
+// ----------------------
+//    CLLECTED ITEMS 
+// ----------------------
+item_sprites = [spr_moon_glow, spr_moon_pearl, spr_moon_key];
+item_size = 64
+item_gap = 140;
+item_row_y = 625;
+
+// Sees what the player has collected
+if(variable_global_exists("abilities")) {
+	item_have = [
+        global.abilities.moon_glow,
+        global.abilities.moon_dash,
+        global.abilities.moon_key
+    ];
+
+} else {
+	item_have = [false, false, false]	 
+ }
+
+item_count = 0;
+for (var n = 0; n < 3; n++){
+	if (item_have[n]) item_count++;
+}
 
 
 

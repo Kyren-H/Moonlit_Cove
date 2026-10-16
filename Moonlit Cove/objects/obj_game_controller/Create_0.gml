@@ -11,11 +11,6 @@ time_remaining = day_duration;
 max_lives = 3;
 lives = max_lives;
 
-// Collectibles
-has_moon_glow = false;
-has_moon_pearl = false;
-has_moon_key = false;
-
 // Game state
 game_over = false;
 

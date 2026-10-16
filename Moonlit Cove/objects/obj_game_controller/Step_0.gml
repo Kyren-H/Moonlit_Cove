@@ -25,14 +25,9 @@ if (!game_over) {
 	        // Reset the clock
 	        time_remaining = day_duration;
 
-	        // Reset collectible HUD state
-	        has_moon_glow = false;
-	        has_moon_pearl = false;
-	        has_moon_key = false;
-
 	        // Reset collectible objects in the world.
 	        // Call your existing world-reset function here.
-	        game_state_reset();
+	        loop_reset();
 	    }
 	}
 }
@@ -43,24 +38,24 @@ if (!game_over) {
 
 // Press 1 to toggle Moon Glow
 if (keyboard_check_pressed(ord("1"))) {
-    has_moon_glow = !has_moon_glow;
+   global.abilities.moon_glow = !global.abilities.moon_glow;
 }
 
 // Press 2 to toggle Moon Pearl
 if (keyboard_check_pressed(ord("2"))) {
-    has_moon_pearl = !has_moon_pearl;
+   global.abilities.moon_dash = !global.abilities.moon_dash;
 }
 
 // Press 3 to toggle Moon Key
 if (keyboard_check_pressed(ord("3"))) {
-    has_moon_key = !has_moon_key;
+    global.abilities.moon_key  = !global.abilities.moon_key;
 }
 
 // Press 0 to reset all collectibles
 if (keyboard_check_pressed(ord("0"))) {
-    has_moon_glow = false;
-    has_moon_pearl = false;
-    has_moon_key = false;
+	global.abilities.moon_glow = false;
+    global.abilities.moon_dash = false;
+    global.abilities.moon_key  = false;
 }
 
 if (keyboard_check_pressed(ord("L"))){

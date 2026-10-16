@@ -41,11 +41,9 @@ for (var i = 0; i < sparkle_count; i++) {
     });
 }
 
-
 // --------------------------------------------
 // CREATE LARGE, DISTANT BUBBLES
 // --------------------------------------------
-
 large_bubble_count = 50;
 large_bubbles = [];
 
@@ -59,7 +57,6 @@ for (var i = 0; i < large_bubble_count; i++) {
         alpha: random_range(0.06, 0.16)
     });
 }
-
 
 // Main ocean backgrounds
 col_bg    = #101b3d;  // Deep ocean

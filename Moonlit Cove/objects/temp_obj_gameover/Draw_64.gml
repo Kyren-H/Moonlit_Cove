@@ -151,6 +151,32 @@ draw_sprite_ext(spr, 0, logo_x, logo_y, logo_scale, logo_scale, 0, c_white, 1);
 			: "The nights slipped away .... but the cove remembers you.");
  
  // ------------------------------------------------
+ // SHOWS WHAT ITEMS THE PLAYER HAS COLLECTED
+ // ------------------------------------------------
+ draw_set_colour(col_mint);
+ draw_text(sw * 0.5, 568, "Collected this run: " + string(item_count) + " / 3");
+ for (var n = 0; n < 3; n++){
+	var icon_x = sw * 0.5 + (n - 1) * item_gap;
+	var icon_y = item_row_y + sin(t * 2 + n) * 4;
+	var spr_icon = item_sprites[n];
+	var scale = item_size / sprite_get_width(spr_icon);
+	
+	if (item_have[n]) {
+		gpu_set_blendmode(bm_add);
+		draw_set_colour(col_glow);
+		draw_set_alpha(0.18 + 0.08 * sin(t * 3 + n));
+		draw_circle(icon_x, icon_y, item_size * 0.7, false);
+		gpu_set_blendmode(bm_normal);
+		
+		draw_sprite_ext(spr_icon, 0, icon_x, icon_y, scale, scale, 0, c_white, 1);
+	} else {
+		draw_sprite_ext(spr_icon, 0, icon_x, icon_y, scale, scale, 0, col_blue, 0.7);
+	}
+ }
+ draw_set_alpha(1);
+ draw_set_colour(c_white);
+ 
+ // ------------------------------------------------
  // HORIZONTAL MENU BUTTONS — SOFT BUBBLE STYLE
  // ------------------------------------------------
 draw_set_font(fnt_ui);
@@ -173,7 +199,7 @@ for (var i = 0; i < array_length(buttons); i++) {
     // Increase this for a more pill-shaped button.
     // For a full pill, radius should be half the height.
     var radius = btn_height * 0.5;
-
+	
     // ------------------------------------------------
     // OUTER SOFT GLOW
     // ------------------------------------------------

@@ -1,4 +1,3 @@
-
 // ================================================
 // MOONLIT COVE — COLLECTIBLE EFFECTS
 // Create Event
@@ -6,6 +5,7 @@
 
 image_speed = 0;
 
+event_inherited();
 // Random starting phase so collectibles animate differently
 glow_phase = random(360);
 float_phase = random(360);

@@ -55,7 +55,6 @@ if (!hits_wall(0, move_y)) {
 }
 
 /// VISUALS
-
 if (x_factor != 0) {
     image_xscale = abs(image_xscale) * sign(x_factor) * -1;
 }

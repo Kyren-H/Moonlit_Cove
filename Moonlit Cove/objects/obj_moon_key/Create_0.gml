@@ -1,4 +1,4 @@
-
+event_inherited();
 // ================================================
 // MOONLIT COVE — COLLECTIBLE EFFECTS
 // Create Event

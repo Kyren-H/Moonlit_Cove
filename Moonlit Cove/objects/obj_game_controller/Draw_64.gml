@@ -1,5 +1,6 @@
+// =================================
 // DARKNESS SEGMENT - CTD
-// Experimental surface stuff. Fun!
+// =================================
 gpu_set_blendenable(true);
 draw_set_alpha(1);
 
@@ -19,7 +20,7 @@ var sfc_X = obj_player.x;
 var sfc_Y = obj_player.y;
 
 // Get the radius to ake a cirlce for the darkness
-var sfc_radius = (has_moon_glow) ? darkness_edge_LR*moonglow_mod : darkness_edge_LR;
+var sfc_radius = (global.abilities.moon_glow) ? darkness_edge_LR*moonglow_mod : darkness_edge_LR;
 var sfc_rings = [[1.00, 0.35], [0.80, 0.50], [0.60, 0.60], [0.40, 1.00]];
 
 for (var r = 0; r < array_length(sfc_rings); r++){
@@ -52,6 +53,7 @@ draw_surface_part_ext(
 	display_get_gui_width() / camera_get_view_width(view_camera[0]), 
 	display_get_gui_height() / camera_get_view_height(view_camera[0]), 
 	c_white, 1);
+	
  // ================================================
  // MOONLIT COVE — COMBINED HUD
  // Timer / Lives / Collectibles
@@ -228,9 +230,9 @@ var icon_sprites = [
 ];
 
 var icon_collected = [
-    has_moon_glow,
-    has_moon_pearl,
-    has_moon_key
+    global.abilities.moon_glow,
+    global.abilities.moon_dash,
+    global.abilities.moon_key
 ];
 
 for (var i = 0; i < 3; i++) {
