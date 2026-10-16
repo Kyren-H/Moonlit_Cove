@@ -1,5 +1,5 @@
 // =================================
-// DARKNESS SEGMENT - CTD
+// DARKNESS SEGMENT
 // =================================
 gpu_set_blendenable(true);
 draw_set_alpha(1);

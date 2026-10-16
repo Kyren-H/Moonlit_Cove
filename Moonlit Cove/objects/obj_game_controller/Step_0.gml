@@ -4,33 +4,35 @@
  // ================================================
 
 if (!game_over) {
-
-    time_remaining -= delta_time / 1000000;
+	
+	if (!timer_paused) {
+	    time_remaining -= delta_time / 1000000;
 
     
-	// Midnight reached
-	if (time_remaining <= 0) {
+		// Midnight reached
+		if (time_remaining <= 0) {
 
-	    // Lose one life
-	    lives = max(0, lives - 1);
+		    // Lose one life
+		    lives = max(0, lives - 1);
 
-	    if (lives <= 0) {
-	        lives = 0;
-	        game_over = true;
+		    if (lives <= 0) {
+		        lives = 0;
+		        game_over = true;
 
-	        // Trigger your Game Over state here.
-			room_goto(game_over_room);
-	    }
-	    else {
-	        // Reset the clock
-	        time_remaining = day_duration;
+		        // Trigger your Game Over state here.
+				instance_create_layer(obj_player.x, obj_player.y, "Effects_Controls", obj_loop_juice);
+		    }
+		    else {
+		        // Reset the clock
+		        time_remaining = day_duration;
 
-	        // Reset collectible objects in the world.
-	        // Call your existing world-reset function here.
-		
-		loop_reset();
-		
-	    }
+		        // Reset collectible objects in the world.
+		        // Call your existing world-reset function here.
+			
+			loop_reset();
+			instance_create_layer(obj_player.x, obj_player.y, "Effects_Controls", obj_loop_juice);
+		    }
+		}
 	}
 }
 

@@ -1,0 +1,23 @@
+{
+  "$GMPath":"",
+  "%Name":"Jellyfish_Path",
+  "closed":false,
+  "kind":0,
+  "name":"Jellyfish_Path",
+  "parent":{
+    "name":"Objects",
+    "path":"folders/Objects.yy",
+  },
+  "points":[
+    {"speed":100.0,"x":1856.0,"y":576.0,},
+    {"speed":100.0,"x":1856.0,"y":736.0,},
+    {"speed":100.0,"x":1312.0,"y":736.0,},
+    {"speed":100.0,"x":1312.0,"y":864.0,},
+    {"speed":100.0,"x":1856.0,"y":864.0,},
+    {"speed":100.0,"x":1856.0,"y":992.0,},
+    {"speed":100.0,"x":1312.0,"y":992.0,},
+  ],
+  "precision":4,
+  "resourceType":"GMPath",
+  "resourceVersion":"2.0",
+}
