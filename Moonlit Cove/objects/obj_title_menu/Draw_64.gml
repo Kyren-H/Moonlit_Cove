@@ -422,7 +422,7 @@ if (panel != "none") {
     if (is_how) {
         body =
             "Welcome to Moonlit Cove\n\n"
-            + "You are Moonfin, a baby orca born from the moon's "
+            + "You are Tsuki, a baby orca born from the moon's "
             + "reflection. The reflection has disappeared, and "
             + "the night keeps repeating.\n\n"
             + "HOW TO EXPLORE\n"
