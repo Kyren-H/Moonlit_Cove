@@ -271,7 +271,7 @@ draw_set_alpha(1);
 // -- Footer -- 
 draw_set_colour(col_aqua);
 draw_set_alpha(0.55 + 0.25 * sin(t * 1.8));
-draw_text(sw * 0.5, btn_y + btn_height + 40, "Enter or click to choose   |   R to try again");
+draw_text(sw * 0.5, btn_y + btn_height + 40, "Enter or click to choose");
 
 // -- Restore Draw State -- 
 draw_set_alpha(1);
