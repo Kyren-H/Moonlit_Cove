@@ -425,8 +425,7 @@ if (panel != "none") {
             + "the night keeps repeating.\n\n"
             + "HOW TO EXPLORE\n"
             + "MOVE: W, A, S, D or Arrow Keys\n"
-            + "DASH / SPIN: Space\n"
-            + "INTERACT: E\n\n"
+            + "SPIN / COLLECT: Space\n"
             + "Explore the cove, discover hidden paths, and learn "
             + "the rhythm of the ocean. The world resets at "
             + "midnight, but your discoveries help you progress.";
