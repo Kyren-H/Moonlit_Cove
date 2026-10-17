@@ -25,6 +25,6 @@ Game Walkthrough:
     3    Moon Glow → Tsuki explores Moon Jellyfish Path, which unlocks at a certain time (when the countdown reaches 100 seconds) during the loop. Tsuki follows Lumi to find and collect the Moon Glow. 
     4    Moon Key → Tsuki travels to the Sunken Ship, which becomes accessible at a certain time during the loop. Tsuki explores the area to find the Moon Key, which is needed to unlock the Moon Shrine. 
     5    Moon Pearl → Once Tsuki has collected Moon Glow, Tsuki can enter the Kelp Forest. Here, Tsuki explores the area to find the Moon Pearl. 
-    6    Moon Shrine → Tsuki can unlock the Moon Shrine with the Moon Key. To complete the game, Tsuki needs to collect all three of these items: Moon Glow, Moon Key, and Moon Pearl. 
+    6    Moon Shrine → Tsuki can unlock the Moon Shrine by collecting the Moon Glow, Moon Key, and Moon Pearl. To complete the game, Tsuki needs to collect all three of these items: Moon Glow, Moon Key, and Moon Pearl. 
     7    Restore the Moon's Reflection and Moonlit Cove → Once all three collectibles have been collected, Tsuki returns them to the Moon Shrine to restore the missing reflection. The cycle breaks, and Moonlit Cove is saved. 
 Note: Tsuki returns to the Cove at midnight, and all collectibles are reset. Make sure to plan the exploration to gather all the items before the loop ends, as Tsuki will lose a life (only 3).
