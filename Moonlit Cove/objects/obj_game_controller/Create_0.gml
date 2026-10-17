@@ -1,11 +1,9 @@
 
- // ================================================
  // MOONLIT COVE — HUD / TIME / LIVES
- // ================================================
 
 // Timer settings
 day_duration = 120;       // Seconds until midnight
-time_remaining = day_duration;
+global.time_remaining = day_duration;
 
 // Player positional cache -- allows returning to start.
 starting_x = obj_player.x;

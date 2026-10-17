@@ -1,7 +1,5 @@
 
-// ================================================
 // MOONLIT COVE — COLOR PALETTE
-// ================================================
 
 // Main ocean backgrounds
 col_bg    = #101b3d;  // Deep ocean

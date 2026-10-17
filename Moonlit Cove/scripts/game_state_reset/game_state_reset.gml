@@ -11,7 +11,7 @@ function game_state_reset(){
 	// -- Abilities --
 	global.abilities = {
 		moon_glow: false,
-		moon_dash: false,
+		moon_pearl: false,
 		moon_key:  false
 	};
 	
@@ -25,10 +25,26 @@ function loop_reset(){
 	if (!global.abilities.moon_glow) {
 		instance_activate_object(obj_moon_glow);
 	}
-	if (!global.abilities.moon_dash) {
+	if (!global.abilities.moon_pearl) {
 		instance_activate_object(obj_moon_pearl);
 	}
 	if (!global.abilities.moon_key) {
 		instance_activate_object(obj_moon_key);
+	}
+	/// RESPAWN COLLECTIBLES FOR THE NEXT LOOP
+
+	with (obj_moon_glow) {
+		collected = false;
+		visible = true;
+	}
+
+	with (obj_moon_pearl) {
+		collected = false;
+		visible = true;
+	}
+
+	with (obj_moon_key) {
+		collected = false;
+		visible = true;
 	}
 }

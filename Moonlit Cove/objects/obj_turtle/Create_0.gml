@@ -4,7 +4,7 @@
 // Dialogue pages
 // --------------------------------------------
 
-speaker_name = "Old Turtle";
+speaker_name = "Old Turtle: Tide";
 
 interaction_range = 50;
 dialogue_active = false;
@@ -16,6 +16,7 @@ dialogue_pages = [
     "Hello, little traveler! Welcome to Moonlit Cove.",
     "The moonlight has been strange tonight. The ocean seems to be hiding something.",
     "If you explore carefully, you may discover magical things that only appear before midnight.",
+	"Press space to collect items of the mystical moon.",
     "Be careful, little one. When midnight comes, the cove begins its cycle anew."
 ];
 

@@ -1,7 +1,5 @@
-// ================================================
 // MOONLIT COVE — COLLECTIBLE EFFECTS
 // Create Event
-// ================================================
 
 image_speed = 0;
 
@@ -36,3 +34,5 @@ col_mint  = #ddf4e8;  // Pale seafoam
 // Moon and text
 col_moon  = #f4eedb;  // Moon cream
 col_text  = #f3f6e8;  // Soft white
+
+collected = false;

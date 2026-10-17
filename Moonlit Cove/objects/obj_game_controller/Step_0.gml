@@ -1,12 +1,12 @@
 
- // ================================================
  // MOONLIT COVE — MIDNIGHT / LIFE LOSS
- // ================================================
+time_remaining = global.time_remaining;
 
 if (!game_over) {
 	
 	if (!timer_paused) {
 	    time_remaining -= delta_time / 1000000;
+		global.time_remaining = time_remaining;
 
     
 		// Midnight reached
@@ -25,6 +25,7 @@ if (!game_over) {
 		    else {
 		        // Reset the clock
 		        time_remaining = day_duration;
+				global.time_remaining = time_remaining;
 
 		        // Reset collectible objects in the world.
 		        // Call your existing world-reset function here.
@@ -47,7 +48,7 @@ if (keyboard_check_pressed(ord("1"))) {
 
 // Press 2 to toggle Moon Pearl
 if (keyboard_check_pressed(ord("2"))) {
-   global.abilities.moon_dash = !global.abilities.moon_dash;
+   global.abilities.moon_pearl = !global.abilities.moon_pearl;
 }
 
 // Press 3 to toggle Moon Key
@@ -58,12 +59,16 @@ if (keyboard_check_pressed(ord("3"))) {
 // Press 0 to reset all collectibles
 if (keyboard_check_pressed(ord("0"))) {
 	global.abilities.moon_glow = false;
-    global.abilities.moon_dash = false;
+    global.abilities.moon_pearl = false;
     global.abilities.moon_key  = false;
+}
+
+// Press 5 to set the countdown to five seconds.
+if (keyboard_check_pressed(ord("5"))) {
+	time_remaining = 5;
+	global.time_remaining = time_remaining;
 }
 
 if (keyboard_check_pressed(ord("L"))){
 	lives = 1;
-	time_remaining = 5;
 }
-

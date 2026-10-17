@@ -1,6 +1,4 @@
-// ========================================
 // MOONLIT COVE - GAME OVER / WIN SCREEN
-// ========================================
 
 // Main ocean backgrounds
 col_bg    = #101b3d;  // Deep ocean
@@ -77,7 +75,7 @@ item_row_y = 625;
 if(variable_global_exists("abilities")) {
 	item_have = [
         global.abilities.moon_glow,
-        global.abilities.moon_dash,
+        global.abilities.moon_pearl,
         global.abilities.moon_key
     ];
 
@@ -89,6 +87,4 @@ item_count = 0;
 for (var n = 0; n < 3; n++){
 	if (item_have[n]) item_count++;
 }
-
-
 

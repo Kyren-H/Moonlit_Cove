@@ -1,8 +1,6 @@
 
-// ================================================
 // MOONLIT COVE — COLLECTIBLE EFFECTS
 // Draw Event
-// ================================================
 
 var px = x;
 var py = y + y_offset;

@@ -1,8 +1,6 @@
 
-// ================================================
 // MOONLIT COVE — COLLECTIBLE EFFECTS
 // Step Event
-// ================================================
 
 // Animate the glow
 glow_phase += 3;

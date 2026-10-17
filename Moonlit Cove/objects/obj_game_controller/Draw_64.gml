@@ -1,6 +1,4 @@
-// =================================
 // DARKNESS SEGMENT
-// =================================
 gpu_set_blendenable(true);
 draw_set_alpha(1);
 
@@ -37,6 +35,15 @@ with (obj_light) {
 	}
 }
 
+with (obj_jellyfish) {
+	var jellyfish_radius = 100 * (0.9 + 0.1 * sin(current_time * 0.003));
+	for (var r = 0; r < array_length(sfc_rings); r++) {
+		var sfc_size = jellyfish_radius * sfc_rings[r][0];
+		draw_set_alpha(sfc_rings[r][1]);
+		draw_ellipse(x - sfc_size, y - sfc_size, x + sfc_size, y + sfc_size, false);
+	}
+}
+
 
 gpu_set_blendmode(bm_normal);
 draw_set_alpha(1);
@@ -54,10 +61,8 @@ draw_surface_part_ext(
 	display_get_gui_height() / camera_get_view_height(view_camera[0]), 
 	c_white, 1);
 	
- // ================================================
  // MOONLIT COVE — COMBINED HUD
  // Timer / Lives / Collectibles
- // ================================================
 
 var sw = display_get_gui_width();
 var sh = display_get_gui_height();
@@ -231,7 +236,7 @@ var icon_sprites = [
 
 var icon_collected = [
     global.abilities.moon_glow,
-    global.abilities.moon_dash,
+    global.abilities.moon_pearl,
     global.abilities.moon_key
 ];
 
@@ -318,4 +323,3 @@ draw_set_colour(c_white);
 draw_set_halign(fa_left);
 draw_set_valign(fa_top);
 draw_set_font(-1);
-

@@ -162,10 +162,10 @@ if (dialogue_active) {
     draw_set_halign(fa_center);
     draw_set_colour(col_moon);
 
-    var prompt = "CLICK / SPACE  >";
+    var prompt = "CLICK >";
 
     if (dialogue_page == array_length(dialogue_pages) - 1) {
-        prompt = "CLICK / SPACE  TO CLOSE";
+        prompt = "CLICK TO CLOSE";
     }
 
     draw_text(

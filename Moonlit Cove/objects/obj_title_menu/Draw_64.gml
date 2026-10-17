@@ -1,8 +1,6 @@
 
-// ================================================
 // MOONLIT COVE — DRAW GUI EVENT
 // Target GUI: 1920 x 1080
-// ================================================
 
 var sw = display_get_gui_width();
 var sh = display_get_gui_height();

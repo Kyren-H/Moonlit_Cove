@@ -1,2 +1,2 @@
-global.abilities.moon_dash = true;
+global.abilities.moon_pearl = true;
 event_inherited();
